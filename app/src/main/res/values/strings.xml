@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Reporte vehiculos Nariño</string>
+
+    <string name="titulo_info">Desarrollado por</string>
+
+
+    <string name="titulo_notificacion">Proxima restricción</string>
+    <string name="cuerpo_notificacion">Mañana</string>
+    <string name="settings">Configuración</string>
 </resources>

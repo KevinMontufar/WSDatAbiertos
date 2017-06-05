@@ -1,10 +1,13 @@
 package montufardevelopers.wsdatabiertos;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +22,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     public final static String TAG = "Datos abiertos Colombia";
 
@@ -29,10 +32,15 @@ public class MainActivity extends AppCompatActivity {
 
     private Retrofit retrofit;
 
+    FloatingActionButton floatingActionButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.floating_button);
+        floatingActionButton.setOnClickListener(this);
 
         //conexion del objeto retrofit
         retrofit = new Retrofit.Builder()
@@ -123,5 +131,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG," onFailure: "+t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.floating_button:
+                Intent intentInfo = new Intent(this, ActivityAcercaDe.class);
+                startActivity(intentInfo);
+                break;
+        }
     }
 }

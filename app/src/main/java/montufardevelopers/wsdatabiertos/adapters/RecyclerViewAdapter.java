@@ -67,7 +67,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(PictureViewHolder holder, int position) {
         final CarrosPOJO pojo = dataset.get(position);
-        //Log.e("AQUIIIIIIIIIIIIIIIII"," Clase: "+pojo.getClase()+"  -  Total: "+pojo.getTotal());
+
         holder.txtTipoAuto.setText(pojo.getClase());
         holder.txtTotalAutos.setText(pojo.getTotal());
 
